@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Merged Project",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-ssd1306", "id": "oled1", "top": 3.29, "left": -193.84, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 133.1, "left": -155.67, "attrs": {} },
+    { "type": "chip-i2c-counter", "id": "max30102", "top": 116.22, "left": 254.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v-44.92", "h230.51", "v178", "h-4" ] ],
+    [ "esp:D22", "oled1:CLK", "blue", [ "h55.53", "v-82.3", "h0.67" ] ],
+    [ "esp:D21", "oled1:DATA", "purple", [ "h71.53", "v-128.53", "h-7.33" ] ],
+    [ "esp:3V3", "oled1:3V3", "red", [ "v0.97", "h19.88", "v-172.99", "h-232.57" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v7.53", "h250.17", "v-105.59" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v17.67", "h265.36", "v-106.81" ] ],
+    [ "max30102:VCC", "esp:3V3", "red", [ "v-7.98", "h-124.8", "v-35.12" ] ],
+    [ "max30102:GND", "esp:GND.1", "black", [ "h-57.6", "v-43" ] ],
+    [ "max30102:SDA", "esp:D21", "purple", [ "h-86.4", "v-119.5" ] ],
+    [ "max30102:SCL", "esp:D22", "blue", [ "h-28.8", "v-105.6", "h-19.2", "v5.2" ] ],
+    [ "dht1:SDA", "esp:D12", "green", [ "v11.2", "h92.77", "v-128.8" ] ]
+  ],
+  "dependencies": {}
+}
